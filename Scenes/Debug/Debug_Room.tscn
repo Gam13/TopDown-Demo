@@ -1246,9 +1246,7 @@ position = Vector2(94, 54)
 [node name="Container" parent="Containers" instance=ExtResource("2_qjuq6")]
 position = Vector2(1, -11)
 item = "Potion"
-quantity = 1
+quantity = 2
 
 [node name="Player" parent="." instance=ExtResource("1_u7j6s")]
 position = Vector2(23, 56)
-
-[connection signal="onInteract" from="Containers/Container" to="Player" method="_on_container_on_interact"]

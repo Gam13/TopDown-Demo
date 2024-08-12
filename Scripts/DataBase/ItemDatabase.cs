@@ -14,20 +14,12 @@ public static class ItemDatabase
     private static Dictionary<string, Item> items = new Dictionary<string, Item>
     {
         { 
-            "Godot", 
-            new Item(
-                "Godot", 
-                "res://icon.svg", 
-                "An icon representing the Godot engine.",
-                () => GD.Print("This is the Godot item!") // Comportamento ao usar o item
-            )
-        },
-        { 
             "Potion", 
             new Item(
                 "Potion", 
                 "res://potion.png", 
                 "Heals 50 health points.",
+                true,
                 () =>
                 {
                     // Usa a referência do player para curar

@@ -6,11 +6,16 @@ public partial class Player : Node2D
     readonly short MaxHp = 100;
     int healthpoints = 100;
 
-    public Godot.Collections.Dictionary<string, int> Inventory = new Godot.Collections.Dictionary<string, int>();
+    [Export]public Godot.Collections.Dictionary<string, int> Inventory = new Godot.Collections.Dictionary<string, int>();
 
     public override void _Ready()
     {
         ItemDatabase.Initialize(this);
+
+        foreach (Container container in GetTree().GetNodesInGroup("Containers"))
+        {
+            container.Connect("ItemInteracted",new Callable( this, nameof(ItemInteractedEventHandler)));
+        }
     }
 
     public void Heal(int amount)
@@ -53,7 +58,9 @@ public partial class Player : Node2D
         }
     }
 
-    public void onInteractEventHandler(string item, int quantity){
-        AddItemToInventory(item,quantity);
+    private void ItemInteractedEventHandler(string item, int quantity)
+    {
+        GD.Print($"Item Received: {item}, Quantity: {quantity}");
+        AddItemToInventory(item, quantity);
     }
 }
