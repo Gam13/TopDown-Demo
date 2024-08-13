@@ -27,12 +27,12 @@ advance_condition = &"interaction"
 resource_local_to_scene = true
 state_machine_type = 1
 allow_transition_to_self = true
-states/End/position = Vector2(711, 157)
+states/End/position = Vector2(603, 105)
 states/Opened/node = SubResource("AnimationNodeAnimation_ufcr7")
-states/Opened/position = Vector2(535, 157)
+states/Opened/position = Vector2(489, 105)
 states/Opening/node = SubResource("AnimationNodeAnimation_8tpwv")
-states/Opening/position = Vector2(535, 43)
-states/Start/position = Vector2(165, 116)
+states/Opening/position = Vector2(341, 105)
+states/Start/position = Vector2(218, 105)
 transitions = ["Opening", "Opened", SubResource("AnimationNodeStateMachineTransition_q14ru"), "Opened", "End", SubResource("AnimationNodeStateMachineTransition_fbv6v"), "Start", "Opening", SubResource("AnimationNodeStateMachineTransition_kh3ok")]
 graph_offset = Vector2(-65, -20)
 

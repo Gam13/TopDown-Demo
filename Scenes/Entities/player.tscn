@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bwnrrfpx0hlae"]
+[gd_scene load_steps=34 format=3 uid="uid://bwnrrfpx0hlae"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/Camera.cs" id="1_rytur"]
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/Player.cs" id="2_mfjbc"]
@@ -354,6 +354,29 @@ _data = {
 "WalkUp": SubResource("Animation_a76ee")
 }
 
+[sub_resource type="GDScript" id="GDScript_k1rok"]
+resource_name = "Debug_Infos"
+script/source = "extends Label
+@onready var player = $\"../..\"
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	text = \"HP:\" + str(player.healthpoints) # Converte o inteiro 'healthpoints' para string e define o texto do Label.
+
+"
+
+[sub_resource type="GDScript" id="GDScript_eu3xm"]
+resource_name = "Debug_inv"
+script/source = "extends Label
+@onready var player = $\"../..\"
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	text = str(player.Inventory)
+	
+	pass
+"
+
 [node name="Player" type="Node2D"]
 script = ExtResource("2_mfjbc")
 
@@ -393,3 +416,27 @@ libraries = {
 position = Vector2(0, 6)
 target_position = Vector2(0, 10)
 hit_from_inside = true
+
+[node name="Label" type="Label" parent="Caracter"]
+offset_left = 9.0
+offset_top = -9.0
+offset_right = 57.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 5
+text = "Texto"
+script = SubResource("GDScript_k1rok")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Caracter"]
+offset_left = 9.0
+offset_top = -3.0
+offset_right = 57.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 5
+text = "Texto"
+script = SubResource("GDScript_eu3xm")
+metadata/_edit_use_anchors_ = true

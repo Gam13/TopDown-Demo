@@ -6,15 +6,20 @@ public class Item
     public string Name { get; }
     public string Description { get; }
     public string ImagePath { get; }
-    public bool Stackable {get;}
+
+    public bool Consumable { get; }
+    public bool Stackable { get; }
     
     public Action OnUse { get; set; }
 
-    public Item(string name, string imagepath, string description, bool Stackable, Action onUse)
+    // Atualize o construtor para inicializar todas as propriedades
+    public Item(string name, string imagePath, string description, bool consumable, bool stackable, Action onUse)
     {
         Name = name;
         Description = description;
-        ImagePath = imagepath;
+        ImagePath = imagePath;
+        Consumable = consumable;
+        Stackable = stackable;   
         OnUse = onUse;
     }
 }

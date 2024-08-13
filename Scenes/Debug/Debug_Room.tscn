@@ -1290,7 +1290,8 @@ position = Vector2(94, 54)
 position = Vector2(-35, 0)
 
 [node name="Container" parent="Containers/InteractableContainer" index="0"]
-item = "Potion"
+position = Vector2(7, 0)
+item = "Weak Potion"
 quantity = 1
 
 [node name="AnimationTree" parent="Containers/InteractableContainer/Container" index="2"]
@@ -1307,6 +1308,7 @@ tree_root = SubResource("AnimationNodeStateMachine_g0xly")
 
 [node name="Player" parent="." instance=ExtResource("1_u7j6s")]
 position = Vector2(23, 56)
+healthpoints = 60
 
 [editable path="Containers/InteractableContainer"]
 [editable path="Containers/InteractableContainer2"]

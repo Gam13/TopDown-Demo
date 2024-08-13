@@ -16,16 +16,34 @@ public static class ItemDatabase
         { 
             "Potion", 
             new Item(
-                "Potion", 
-                "res://potion.png", 
-                "Heals 50 health points.",
-                true,
-                () =>
+                "Potion",                   //Nome
+                "res://potion.png",         //Imagem do Item
+                "Heals 50 health points.",  //Descrição
+                true,                       //Consumível
+                true,                       //Estacável no inventário
+                () =>                       //OnUse
                 {
                     // Usa a referência do player para curar
                     player.Heal(50);
                 }
             )
+            
+        },
+        { 
+            "Weak Potion", 
+            new Item(
+                "Weak Potion",                   //Nome
+                "res://potion.png",         //Imagem do Item
+                "Heals 30 health points.",  //Descrição
+                true,                       //Consumível
+                true,                       //Estacável no inventário
+                () =>                       //OnUse
+                {
+                    // Usa a referência do player para curar
+                    player.Heal(30);
+                }
+            )
+            
         },
         // Adicione outros itens aqui
     };
