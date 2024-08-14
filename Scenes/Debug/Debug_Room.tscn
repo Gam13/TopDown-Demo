@@ -1309,6 +1309,7 @@ tree_root = SubResource("AnimationNodeStateMachine_g0xly")
 [node name="Player" parent="." instance=ExtResource("1_u7j6s")]
 position = Vector2(23, 56)
 healthpoints = 60
+Inventory = null
 
 [editable path="Containers/InteractableContainer"]
 [editable path="Containers/InteractableContainer2"]

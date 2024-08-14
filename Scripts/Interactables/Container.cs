@@ -17,7 +17,7 @@ public partial class Container : Interactable
         animationTree.Set("active", true);
         AddToGroup("Containers");
 
-        // Initialize the item based on the itemName
+
         item = ItemDatabase.GetItem(itemName);
     }
 

@@ -4,6 +4,7 @@ using System;
 [GlobalClass]
 public partial class ItemDatabase : Resource
 {
+
     private static Player player;
     public static void Initialize(Player playerInstance)
     {
@@ -48,7 +49,7 @@ public partial class ItemDatabase : Resource
         items.TryGetValue(name, out var item);
         return item;
     }
-
+    
     public static Godot.Collections.Dictionary<string, Item> GetAllItems()
     {
         return items;
