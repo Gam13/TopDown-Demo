@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwnrrfpx0hlae"]
+[gd_scene load_steps=35 format=3 uid="uid://bwnrrfpx0hlae"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_j46r1"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera.cs" id="2_cyqxb"]
 [ext_resource type="Script" path="res://Scripts/Player/Caracter.cs" id="3_426su"]
 [ext_resource type="Texture2D" uid="uid://bh8geeh0jhws2" path="res://Assets/DebugAssets/The Adventurer - Free/Idle/idle.png" id="3_grkoh"]
 [ext_resource type="Texture2D" uid="uid://tuptrdjyj6i1" path="res://Assets/DebugAssets/The Adventurer - Free/Walk/walk.png" id="4_w0p5n"]
+[ext_resource type="PackedScene" uid="uid://c47on53iax44x" path="res://Scenes/UI/Inventory.tscn" id="6_x14yx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37mxs"]
 radius = 7.0
@@ -357,7 +358,7 @@ _data = {
 [sub_resource type="GDScript" id="GDScript_k1rok"]
 resource_name = "Debug_Infos"
 script/source = "extends Label
-@onready var player = $\"../..\"
+@onready var player = $\"/root/PlayerData\"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -369,7 +370,7 @@ func _process(_delta):
 resource_name = "Debug_inv"
 script/source = "extends Label
 
-@onready var player = $\"../..\"
+@onready var player = $\"/root/PlayerData\"
 
 func _process(_delta):
 	var inventory_text = \"\\n\"
@@ -387,6 +388,18 @@ script = ExtResource("1_j46r1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_cyqxb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="Inventory" parent="Camera2D/CanvasLayer" instance=ExtResource("6_x14yx")]
+clip_contents = true
+anchors_preset = -1
+anchor_left = -0.502
+anchor_top = -0.5
+anchor_right = 0.493
+anchor_bottom = 0.5
+offset_left = -0.0739899
+offset_right = -0.00900269
 
 [node name="Caracter" type="CharacterBody2D" parent="."]
 script = ExtResource("3_426su")

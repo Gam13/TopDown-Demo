@@ -4,14 +4,11 @@ using System.Linq;
 
 public partial class Player : Node2D
 {
-    readonly short MaxHp = 100;
-    [Export] int healthpoints = 100;
-
-    [Export] public Godot.Collections.Dictionary<Item, int> Inventory = new Godot.Collections.Dictionary<Item, int>();
-
+    [Export]private PlayerData playerData { get; set; }
     public override void _Ready()
     {
         ItemDatabase.Initialize(this);
+        playerData = GetNode<PlayerData>("/root/PlayerData");
 
         foreach (Container container in GetTree().GetNodesInGroup("Containers"))
         {
@@ -24,39 +21,38 @@ public partial class Player : Node2D
         //Debug using function
         if (Input.IsActionJustPressed("inventory"))
         {
-            UseItem(Inventory.Keys.First());
+            UseItem(playerData.Inventory.Keys.First());
         }
     }
 
     public void Heal(int amount)
     {
-        healthpoints += amount;
-        healthpoints = Mathf.Clamp(healthpoints, 0, MaxHp);
-        GD.Print($"Player healed by {amount}. Current health: {healthpoints}");
+        playerData.healthpoints += amount;
+        playerData.healthpoints = Mathf.Clamp(playerData.healthpoints, 0, playerData.MaxHp);
     }
 
     public void AddItemToInventory(Item itemName, int quantity)
     {
 
-        if (Inventory.ContainsKey(itemName))
+        if (playerData.Inventory.ContainsKey(itemName))
         {
-            Inventory[itemName] += quantity;
+            playerData.Inventory[itemName] += quantity;
         }
         else
         {
-            Inventory[itemName] = quantity;
+            playerData.Inventory[itemName] = quantity;
         }
     }
 
     public void RemoveItemFromInventory(Item itemName, int quantity)
     {
-        
-        if (Inventory.ContainsKey(itemName))
+
+        if (playerData.Inventory.ContainsKey(itemName))
         {
-            Inventory[itemName] -= quantity;
-            if (Inventory[itemName] <= 0)
+            playerData.Inventory[itemName] -= quantity;
+            if (playerData.Inventory[itemName] <= 0)
             {
-                Inventory.Remove(itemName);
+                playerData.Inventory.Remove(itemName);
             }
         }
     }
@@ -67,39 +63,38 @@ public partial class Player : Node2D
         Item item = ItemDatabase.GetItem(itemName.Name);
 
         // Verifica se o item existe e se está no inventário
-        if (item != null && Inventory.ContainsKey(itemName))
+        if (item != null && playerData.Inventory.ContainsKey(itemName))
         {
             item.OnUse?.Invoke();
-            if (item.Consumable)RemoveItemFromInventory(item, 1);
+            if (item.Consumable) RemoveItemFromInventory(item, 1);
         }
     }
 
 
     private void ItemInteractedEventHandler(Item item, int quantity)
-{
-    if (item == null)
     {
-        GD.PrintErr("Received a null item in ItemInteractedEventHandler.");
-        return;
-    }
+        if (item == null)
+        {
+            GD.PrintErr("Received a null item in ItemInteractedEventHandler.");
+            return;
+        }
 
-    if (string.IsNullOrEmpty(item.Name))
-    {
-        GD.PrintErr("Item name is null or empty.");
-        return;
-    }
+        if (string.IsNullOrEmpty(item.Name))
+        {
+            GD.PrintErr("Item name is null or empty.");
+            return;
+        }
 
-    Item dbItem = ItemDatabase.GetItem(item.Name);
+        Item dbItem = ItemDatabase.GetItem(item.Name);
 
-    if (dbItem != null && quantity > 0)
-    {
-        GD.Print($"Item Received: {item.Name}, Quantity: {quantity}");
-        AddItemToInventory(dbItem, quantity);
+        if (dbItem != null && quantity > 0)
+        {
+            AddItemToInventory(dbItem, quantity);
+        }
+        else
+        {
+            GD.PrintErr($"Item not found in database or invalid quantity. Item Name: {item.Name}, Quantity: {quantity}");
+        }
     }
-    else
-    {
-        GD.PrintErr($"Item not found in database or invalid quantity. Item Name: {item.Name}, Quantity: {quantity}");
-    }
-}
 
 }

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cnmpkm4tjomsu"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cnmpkm4tjomsu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8bhg"]
 bg_color = Color(0.470408, 0.365609, 0.283274, 1)
@@ -16,19 +16,22 @@ corner_detail = 20
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5vlx"]
 bg_color = Color(0.996078, 0.556863, 0.537255, 0.466667)
 border_color = Color(0.539099, 0.40711, 0.912158, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgx2p"]
-bg_color = Color(0.623529, 0.498039, 0.4, 1)
-border_width_left = 1
+bg_color = Color(0.588235, 0.384314, 0.262745, 0.258824)
 border_width_top = 1
-border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.458824, 0.380392, 0.313726, 1)
+border_color = Color(0.293815, 0.131569, 0.0500281, 1)
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 corner_detail = 20
+shadow_color = Color(0, 0, 0, 0.647059)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wgul"]
 bg_color = Color(0.470408, 0.365609, 0.283274, 1)
@@ -44,13 +47,25 @@ corner_radius_bottom_left = 1
 corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7jr7"]
-bg_color = Color(0.996078, 0.8, 0.639216, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.895832, 0.630821, 0.478107, 1)
-border_blend = true
+bg_color = Color(0.603922, 0.32549, 0.403922, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.286225, 0.100406, 0.0183371, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xk3ek"]
+bg_color = Color(0.995166, 0.770863, 0.584758, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxtxj"]
+bg_color = Color(0.996078, 0.772549, 0.584314, 1)
+border_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -69,3 +84,5 @@ Button/styles/normal = SubResource("StyleBoxFlat_bgx2p")
 Button/styles/pressed = SubResource("StyleBoxFlat_6wgul")
 Label/colors/font_color = Color(0, 0, 0, 0.737255)
 Panel/styles/panel = SubResource("StyleBoxFlat_c7jr7")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_xk3ek")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_qxtxj")
