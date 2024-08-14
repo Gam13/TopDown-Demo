@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://bwnrrfpx0hlae"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/Camera.cs" id="1_rytur"]
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/Player.cs" id="2_mfjbc"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_j46r1"]
+[ext_resource type="Script" path="res://Scripts/Player/Camera.cs" id="2_cyqxb"]
+[ext_resource type="Script" path="res://Scripts/Player/Caracter.cs" id="3_426su"]
 [ext_resource type="Texture2D" uid="uid://bh8geeh0jhws2" path="res://Assets/DebugAssets/The Adventurer - Free/Idle/idle.png" id="3_grkoh"]
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/Caracter.cs" id="3_qom8j"]
 [ext_resource type="Texture2D" uid="uid://tuptrdjyj6i1" path="res://Assets/DebugAssets/The Adventurer - Free/Walk/walk.png" id="4_w0p5n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_37mxs"]
@@ -378,13 +378,13 @@ func _process(_delta):
 "
 
 [node name="Player" type="Node2D"]
-script = ExtResource("2_mfjbc")
+script = ExtResource("1_j46r1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("1_rytur")
+script = ExtResource("2_cyqxb")
 
 [node name="Caracter" type="CharacterBody2D" parent="."]
-script = ExtResource("3_qom8j")
+script = ExtResource("3_426su")
 
 [node name="Sprite2D" type="Sprite2D" parent="Caracter"]
 texture = ExtResource("3_grkoh")

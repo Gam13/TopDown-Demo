@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bvbkpnox14s1p"]
 
-[ext_resource type="Script" path="res://Scripts/Container/Container.cs" id="1_n3vp6"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Container.cs" id="1_0rtx1"]
 [ext_resource type="Texture2D" uid="uid://cw3wqwl6q1tto" path="res://Assets/DebugAssets/Fantasy RPG (Toony) 32x32.png" id="2_y0sil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf2gw"]
@@ -116,7 +116,7 @@ _data = {
 
 [node name="Container" type="StaticBody2D" parent="."]
 disable_mode = 2
-script = ExtResource("1_n3vp6")
+script = ExtResource("1_0rtx1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Container"]
 texture = ExtResource("2_y0sil")
