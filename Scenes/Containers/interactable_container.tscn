@@ -1,26 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://btm23egkng57c"]
+[gd_scene load_steps=14 format=3 uid="uid://bvbkpnox14s1p"]
 
-[ext_resource type="Script" path="res://Scripts/Container/Container.cs" id="1_xoli2"]
-[ext_resource type="Texture2D" uid="uid://cw3wqwl6q1tto" path="res://Assets/DebugAssets/Fantasy RPG (Toony) 32x32.png" id="2_6co7j"]
+[ext_resource type="Script" path="res://Scripts/Interactables/Container.cs" id="1_0rtx1"]
+[ext_resource type="Texture2D" uid="uid://cw3wqwl6q1tto" path="res://Assets/DebugAssets/Fantasy RPG (Toony) 32x32.png" id="2_y0sil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf2gw"]
 size = Vector2(28, 25)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1cb3m"]
-animation = &"Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ufcr7"]
 animation = &"Opened"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8tpwv"]
 animation = &"Opening"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_605qi"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4ylvb"]
-advance_mode = 2
-advance_condition = &"interaction"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q14ru"]
 switch_mode = 2
@@ -29,43 +19,22 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fbv6v"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_10lxx"]
-states/End/position = Vector2(711, 157)
-states/Idle/node = SubResource("AnimationNodeAnimation_1cb3m")
-states/Idle/position = Vector2(341, 100)
-states/Opened/node = SubResource("AnimationNodeAnimation_ufcr7")
-states/Opened/position = Vector2(535, 157)
-states/Opening/node = SubResource("AnimationNodeAnimation_8tpwv")
-states/Opening/position = Vector2(535, 43)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_605qi"), "Idle", "Opening", SubResource("AnimationNodeStateMachineTransition_4ylvb"), "Opening", "Opened", SubResource("AnimationNodeStateMachineTransition_q14ru"), "Opened", "End", SubResource("AnimationNodeStateMachineTransition_fbv6v")]
-graph_offset = Vector2(-65, -20)
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kh3ok"]
+advance_mode = 2
+advance_condition = &"interaction"
 
-[sub_resource type="Animation" id="Animation_rw811"]
-resource_name = "Idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Container/Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_6co7j")]
-}
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cvob6"]
+resource_local_to_scene = true
+state_machine_type = 1
+allow_transition_to_self = true
+states/End/position = Vector2(603, 105)
+states/Opened/node = SubResource("AnimationNodeAnimation_ufcr7")
+states/Opened/position = Vector2(489, 105)
+states/Opening/node = SubResource("AnimationNodeAnimation_8tpwv")
+states/Opening/position = Vector2(341, 105)
+states/Start/position = Vector2(218, 105)
+transitions = ["Opening", "Opened", SubResource("AnimationNodeStateMachineTransition_q14ru"), "Opened", "End", SubResource("AnimationNodeStateMachineTransition_fbv6v"), "Start", "Opening", SubResource("AnimationNodeStateMachineTransition_kh3ok")]
+graph_offset = Vector2(-65, -20)
 
 [sub_resource type="Animation" id="Animation_oflis"]
 resource_name = "Opened"
@@ -91,7 +60,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_6co7j")]
+"values": [ExtResource("2_y0sil")]
 }
 
 [sub_resource type="Animation" id="Animation_sftik"]
@@ -106,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_6co7j")]
+"values": [ExtResource("2_y0sil")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -133,39 +102,38 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(2, 1)]
+"values": [Vector2i(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fau5j"]
 _data = {
-"Idle": SubResource("Animation_rw811"),
 "Opened": SubResource("Animation_oflis"),
 "Opening": SubResource("Animation_sftik"),
 "RESET": SubResource("Animation_k87be")
 }
 
-[node name="Container" type="StaticBody2D"]
-disable_mode = 2
-script = ExtResource("1_xoli2")
+[node name="InteractableContainer" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6co7j")
+[node name="Container" type="StaticBody2D" parent="."]
+disable_mode = 2
+script = ExtResource("1_0rtx1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Container"]
+texture = ExtResource("2_y0sil")
 hframes = 12
 vframes = 8
-frame = 14
 
-[node name="ContainerColision" type="CollisionShape2D" parent="."]
+[node name="ContainerColision" type="CollisionShape2D" parent="Container"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hf2gw")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="Container"]
 root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_10lxx")
+tree_root = SubResource("AnimationNodeStateMachine_cvob6")
 anim_player = NodePath("AnimationPlayer")
 parameters/conditions/interaction = false
-parameters/conditions/opened = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/AnimationTree"]
 root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_fau5j")
