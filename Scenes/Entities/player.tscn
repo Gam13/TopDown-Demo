@@ -389,18 +389,6 @@ script = ExtResource("1_j46r1")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_cyqxb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="Inventory" parent="Camera2D/CanvasLayer" instance=ExtResource("6_x14yx")]
-clip_contents = true
-anchors_preset = -1
-anchor_left = -0.502
-anchor_top = -0.5
-anchor_right = 0.493
-anchor_bottom = 0.5
-offset_left = -0.0739899
-offset_right = -0.00900269
-
 [node name="Caracter" type="CharacterBody2D" parent="."]
 script = ExtResource("3_426su")
 
@@ -459,3 +447,13 @@ theme_override_font_sizes/font_size = 3
 text = "Texto"
 script = SubResource("GDScript_eu3xm")
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("6_x14yx")]
+visible = false
+clip_contents = true
+anchors_preset = -1
+anchor_left = 0.005
+offset_left = -0.0650001
+offset_right = -1.52588e-05

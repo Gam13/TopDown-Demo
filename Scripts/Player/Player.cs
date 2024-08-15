@@ -5,11 +5,12 @@ using System.Linq;
 public partial class Player : Node2D
 {
     [Export]private PlayerData playerData { get; set; }
+    private Control inventory;
     public override void _Ready()
     {
         ItemDatabase.Initialize(this);
         playerData = GetNode<PlayerData>("/root/PlayerData");
-
+        inventory = GetNode<Control>("CanvasLayer/Inventory");
         foreach (Container container in GetTree().GetNodesInGroup("Containers"))
         {
             container.Connect("ItemInteracted", new Callable(this, nameof(ItemInteractedEventHandler)));
@@ -21,7 +22,8 @@ public partial class Player : Node2D
         //Debug using function
         if (Input.IsActionJustPressed("inventory"))
         {
-            UseItem(playerData.Inventory.Keys.First());
+            if(inventory.Visible)inventory.Hide();
+            else inventory.Show();
         }
     }
 

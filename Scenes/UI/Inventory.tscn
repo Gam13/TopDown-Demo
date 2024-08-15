@@ -14,46 +14,6 @@ grow_vertical = 2
 theme = ExtResource("1_n3jk3")
 script = ExtResource("2_5mgb4")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.236
-anchor_bottom = 0.8
-offset_left = -1.0
-offset_right = 12.968
-offset_bottom = 24.0
-theme = ExtResource("1_n3jk3")
-
-[node name="TabContainer" type="TabContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 251.0
-offset_bottom = 475.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-tab_alignment = 1
-
-[node name="Itens" type="MarginContainer" parent="Panel/TabContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Itens"]
-layout_mode = 2
-
-[node name="Salvar" type="MarginContainer" parent="Panel/TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
 [node name="Description" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -107,3 +67,34 @@ anchor_bottom = 1.0
 offset_bottom = 0.236
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = 42.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+tab_alignment = 1
+
+[node name="Itens" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Itens"]
+layout_mode = 2
+
+[node name="Salvar" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
