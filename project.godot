@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Tributo a mansão"
+config/name="TopDown Demo"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -30,7 +30,7 @@ window/stretch/aspect="expand"
 
 [dotnet]
 
-project/assembly_name="Tributo a mansão"
+project/assembly_name="TopDown Demo"
 
 [input]
 
