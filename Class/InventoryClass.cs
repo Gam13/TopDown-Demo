@@ -1,9 +1,10 @@
 using Godot;
 using System;
 
+
 public partial class Inventory : Resource
 {
-    private Godot.Collections.Dictionary<Item, int> itemList = new Godot.Collections.Dictionary<Item, int>();
+    public Godot.Collections.Dictionary<Item, int> itemList = new Godot.Collections.Dictionary<Item, int>();
 
     public void AddItem(Item item, int quantity)
     {
@@ -52,6 +53,7 @@ public partial class Inventory : Resource
         }
         return 0;
     }
+
 
 
 }
