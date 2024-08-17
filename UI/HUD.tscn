@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://c514vy62feytp"]
+
+[ext_resource type="Script" path="res://UI/Hud.cs" id="1_h2kbv"]
+[ext_resource type="Resource" uid="uid://gfnagblg0kh4" path="res://GlobalData/PlayerData.tres" id="2_40boj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma5bk"]
+bg_color = Color(0.333333, 0.333333, 0.631373, 0.658824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qdaw"]
+bg_color = Color(1, 0.143689, 0.285628, 1)
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2kbv")
+playerData = ExtResource("2_40boj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ma5bk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6qdaw")
+show_percentage = false
+
+[node name="Melee" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Ranged" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0

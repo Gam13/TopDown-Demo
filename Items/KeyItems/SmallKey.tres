@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dh5nqywx330ky"]
+
+[ext_resource type="Script" path="res://Class/Items/Item.cs" id="1_1jtfu"]
+[ext_resource type="Texture2D" uid="uid://bnfvwoejdo2ob" path="res://icon.svg" id="1_lkc4g"]
+
+[resource]
+script = ExtResource("1_1jtfu")
+Name = "Chave Pequena"
+Description = "Uma pequena chave, parece frágil"
+Icon = ExtResource("1_lkc4g")
+stackable = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Consumible" load_steps=4 format=3 uid="uid://dx3xir4rhd3xp"]
+
+[ext_resource type="Script" path="res://Class/Items/Consumible.cs" id="1_5ulwa"]
+[ext_resource type="Texture2D" uid="uid://bnfvwoejdo2ob" path="res://icon.svg" id="1_infgg"]
+[ext_resource type="Resource" uid="uid://gfnagblg0kh4" path="res://GlobalData/PlayerData.tres" id="2_377pf"]
+
+[resource]
+script = ExtResource("1_5ulwa")
+amount = 10
+stackable = true
+percentual = false
+data = ExtResource("2_377pf")
+Name = "Chocolate"
+Description = "Cura uma pequena quantidade de saúde"
+Icon = ExtResource("1_infgg")
