@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://duxl3xnxcy0ah"]
+
+[ext_resource type="PackedScene" uid="uid://derrf5s5xxc52" path="res://Player/player.tscn" id="1_yyohi"]
+[ext_resource type="PackedScene" uid="uid://sm6rax01vhfn" path="res://Components/ContainerGeneric/container.tscn" id="2_dintn"]
+
+[node name="DebugRoom" type="Node2D"]
+
+[node name="Containers" type="Node2D" parent="."]
+
+[node name="Container" parent="Containers" instance=ExtResource("2_dintn")]
+position = Vector2(352, 165)
+
+[node name="Player" parent="." instance=ExtResource("1_yyohi")]
+position = Vector2(519, 260)

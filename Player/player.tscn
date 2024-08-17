@@ -22,6 +22,7 @@ offset_bottom = 24.0
 color = Color(0, 0.619608, 1, 1)
 
 [node name="MapCollisor" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_r5ty2")
 debug_color = Color(0.00542602, 0.281153, 0.510825, 0.42)

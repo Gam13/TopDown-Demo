@@ -9,5 +9,4 @@ using System;
         [Export] public Item rangedWeapon;
         [Export] public Inventory inventory = new  Inventory();
 
-
 }
