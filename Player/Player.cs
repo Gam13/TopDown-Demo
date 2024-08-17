@@ -4,6 +4,7 @@ using System;
 public partial class Player : CharacterBody2D
 {
     [Export]public PlayerData data;
+    [Export]private RayCast2D interaction;
 	private Vector2 direction = Vector2.Zero;
 	public const float Speed = 300.0f;
 
@@ -13,6 +14,7 @@ public partial class Player : CharacterBody2D
 	public override void _PhysicsProcess(double delta)
 	{
 		Moviment();
+        UpdateInteractionRaycast();
 	}
 
 	public void Moviment()
@@ -24,6 +26,14 @@ public partial class Player : CharacterBody2D
 
         Velocity = velocity;
         MoveAndSlide();
+    }
+
+    private void UpdateInteractionRaycast() 
+    {
+        if (direction != Vector2.Zero)
+        {
+            interaction.TargetPosition = direction * 25;
+        }
     }
 
 

@@ -9,9 +9,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5ty2"]
 radius = 15.0333
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("interaction")]
 script = ExtResource("1_xl0th")
 data = ExtResource("2_jg7at")
+interaction = NodePath("MapCollisor/Interaction")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -15.0
@@ -21,10 +22,12 @@ offset_bottom = 24.0
 color = Color(0, 0.619608, 1, 1)
 
 [node name="MapCollisor" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_r5ty2")
 debug_color = Color(0.00542602, 0.281153, 0.510825, 0.42)
+
+[node name="Interaction" type="RayCast2D" parent="MapCollisor"]
+target_position = Vector2(0, 22)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("2_d1w3f")

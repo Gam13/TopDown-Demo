@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MeleeWeapon" load_steps=3 format=3 uid="uid://5coyxjo3vbxe"]
+
+[ext_resource type="Texture2D" uid="uid://bnfvwoejdo2ob" path="res://icon.svg" id="1_hq67n"]
+[ext_resource type="Script" path="res://Class/ItemTypes/MeleeWeapon.cs" id="2_mgvki"]
+
+[resource]
+script = ExtResource("2_mgvki")
+Stamina = 1
+level = 1
+damage = 2
+speed = 10
+Name = "Faca de Cozinha"
+Description = "Uma faca comum de cozinha"
+Icon = ExtResource("1_hq67n")
+stackable = false
