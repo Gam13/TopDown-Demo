@@ -1,7 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c514vy62feytp"]
-
-[ext_resource type="Script" path="res://UI/Hud.cs" id="1_h2kbv"]
-[ext_resource type="Resource" uid="uid://gfnagblg0kh4" path="res://GlobalData/PlayerData.tres" id="2_40boj"]
+[gd_scene load_steps=3 format=3 uid="uid://d284aoik61kvd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ma5bk"]
 bg_color = Color(0.333333, 0.333333, 0.631373, 0.658824)
@@ -16,8 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h2kbv")
-playerData = ExtResource("2_40boj")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

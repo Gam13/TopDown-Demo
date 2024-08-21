@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://derrf5s5xxc52"]
+
+[ext_resource type="PackedScene" uid="uid://d284aoik61kvd" path="res://UI/hud.tscn" id="1_onhfp"]
+[ext_resource type="PackedScene" uid="uid://ybdahiiscl46" path="res://UI/inventory.tscn" id="2_fn1d7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5ty2"]
+radius = 15.0333
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = 24.0
+color = Color(0, 0.619608, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MapCollisor" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_r5ty2")
+debug_color = Color(0.00542602, 0.281153, 0.510825, 0.42)
+
+[node name="Interaction" type="RayCast2D" parent="MapCollisor"]
+target_position = Vector2(0, 22)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UI" instance=ExtResource("1_onhfp")]
+visible = false
+
+[node name="Inventory" parent="UI" instance=ExtResource("2_fn1d7")]
+visible = false

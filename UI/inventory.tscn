@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://onyp82hyg2c0"]
-
-[ext_resource type="Script" path="res://UI/InventoryHud.cs" id="1_kst2g"]
-[ext_resource type="Resource" uid="uid://gfnagblg0kh4" path="res://GlobalData/PlayerData.tres" id="2_a1vxg"]
+[gd_scene format=3 uid="uid://ybdahiiscl46"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -10,8 +7,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kst2g")
-data = ExtResource("2_a1vxg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
