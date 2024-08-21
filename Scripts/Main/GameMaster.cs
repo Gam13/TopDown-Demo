@@ -14,18 +14,18 @@ public partial class GameMaster : Node {
     public static bool ignoreUserInput = false;
 
     //Base Player Data
-    public static PlayerData playerData = new PlayerData();
+    public static PlayerData playerData = new();
 
     //Game Data
-    public static GameData gameData = new GameData();
+    public static GameData gameData = new();
 
     //Data Types Enum
     public enum SaveTypes { playerDat, gameDat }
 
     //Save Slots
-    public static PlayerData loadedPlayerDataSlot1 = new PlayerData();
-    public static PlayerData loadedPlayerDataSlot2 = new PlayerData();
-    public static PlayerData loadedPlayerDataSlot3 = new PlayerData();
+    public static PlayerData loadedPlayerDataSlot1 = new();
+    public static PlayerData loadedPlayerDataSlot2 = new();
+    public static PlayerData loadedPlayerDataSlot3 = new();
 
     public override void _Ready() {
         GD.Print("Gamemaster Ready");

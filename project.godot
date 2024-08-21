@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 GameMaster="*res://Scripts/Main/GameMaster.cs"
 SceneManager="*res://Scripts/Main/SceneManager.cs"
+ItemManager="*res://Scripts/Main/ItemManager.cs"
 
 [dotnet]
 
