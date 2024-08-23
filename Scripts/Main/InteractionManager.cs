@@ -10,6 +10,27 @@ public partial class InteractionManager : Node
         instance = this;
     }
 
+    public InteractionComponent FindInteractionComponentInChildren(Node parent)
+    {
+        // Verifica se o node atual é um InteractionComponent
+        if (parent is InteractionComponent interactionComponent)
+        {
+            return interactionComponent;
+        }
+
+        // Busca recursivamente nos filhos
+        foreach (Node child in parent.GetChildren())
+        {
+            var found = FindInteractionComponentInChildren(child);
+            if (found != null)
+            {
+                return found;
+            }
+        }
+
+        // Nenhum InteractionComponent encontrado
+        return null;
+    }
     public void HandleInteraction(InteractionComponent interactionComponent)
     {
         if(interactionComponent is ContainerComponent){

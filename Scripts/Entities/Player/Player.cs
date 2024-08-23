@@ -1,13 +1,12 @@
 using Godot;
-using Managment.Game;
 
 public partial class Player : CharacterBody2D
 {
     public const float Speed = 300.0f;
-    
+
     [Export] private RayCast2D InteractionCast;
     [Export] private Control InventoryHud;
-    
+
     private Vector2 direction;
 
     public override void _PhysicsProcess(double delta)
@@ -20,12 +19,12 @@ public partial class Player : CharacterBody2D
     {
         Vector2 velocity = Velocity;
         direction = Input.GetVector("left", "right", "up", "down").Normalized();
-        
+
         if (direction != Vector2.Zero)
         {
             InteractionCast.TargetPosition = direction * 25;
         }
-        
+
         velocity = direction * Speed;
         Velocity = velocity;
         MoveAndSlide();
@@ -33,9 +32,9 @@ public partial class Player : CharacterBody2D
 
     private void CallActions()
     {
-        if (Input.IsActionJustPressed("inventory"))HandleInventory();
-		if (Input.IsActionJustPressed("interact"))HandleInteract();
-        
+        if (Input.IsActionJustPressed("inventory")) HandleInventory();
+        if (Input.IsActionJustPressed("interact")) HandleInteract();
+
     }
 
     private void HandleInventory()
@@ -55,16 +54,33 @@ public partial class Player : CharacterBody2D
         }
     }
 
-	 private void HandleInteract()
+
+
+    private void HandleInteract()
     {
         if (InteractionCast.IsColliding())
         {
-            var colliding = InteractionCast.GetCollider();
-            if (colliding is InteractionComponent interactionComponent)
+            // Obtém o node colidido como Node
+            var colliding = InteractionCast.GetCollider() as Node;
+            if (colliding != null)
             {
-                InteractionManager.instance.HandleInteraction(interactionComponent);
+                // Encontra o node "Components" dentro do node colidido
+                var componentsNode = colliding.GetNodeOrNull("Components");
+                if (componentsNode != null)
+                {
+                    // Procura qualquer InteractionComponent dentro do node "Components" e seus filhos
+                    var interactionComponent = InteractionManager.instance.FindInteractionComponentInChildren(componentsNode);
+                    if (interactionComponent != null)
+                    {
+                        // Passa o InteractionComponent para o InteractionManager
+                        InteractionManager.instance.HandleInteraction(interactionComponent);
+                    }
+                }
             }
         }
     }
+
+
+
 
 }

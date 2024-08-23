@@ -10,7 +10,7 @@ using System;
     [Export] public bool Consumable { get; set; }
     public Action OnUse { get; set; }
 
-    // Construtor opcional
+    public ItemType(){}
     public ItemType(string name, string description, string imagePath,bool consumible, Action onUse = null)
     {
         Name = name;

@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dslnxndsa3x7d"]
 
 [ext_resource type="PackedScene" uid="uid://derrf5s5xxc52" path="res://Scenes/Player/player.tscn" id="1_hhes7"]
-[ext_resource type="PackedScene" uid="uid://dtjn0mu3l0gwd" path="res://Components/Interaction/Container.tscn" id="2_482ax"]
+[ext_resource type="PackedScene" uid="uid://dht34kb1ngyu" path="res://Scenes/Interactables/base_container.tscn" id="2_260jx"]
 
 [node name="100DebugRoom" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_hhes7")]
 position = Vector2(490, 258)
 
-[node name="ContainerComponent" parent="." instance=ExtResource("2_482ax")]
-Collectables = Array[int]([])
+[node name="BaseContainer" parent="." instance=ExtResource("2_260jx")]

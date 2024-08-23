@@ -1,9 +1,6 @@
 using Godot;
-using Managment.Game;
 using System.Collections.Generic;
 
-namespace Managment.Scene
-{
     public enum eSceneNames
     {
         MainMenu = 1,
@@ -34,4 +31,4 @@ namespace Managment.Scene
         }
 
     }
-}
+

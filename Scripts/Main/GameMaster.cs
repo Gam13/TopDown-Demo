@@ -1,6 +1,5 @@
 using Godot;
 using System;
-namespace Managment.Game{
     public partial class GameMaster : Node {
 
     //Release.Features.Patch
@@ -20,4 +19,3 @@ namespace Managment.Game{
     public static GameData gameData = new();
 
     }
-}
