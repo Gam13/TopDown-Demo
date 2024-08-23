@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtjn0mu3l0gwd"]
+
+[ext_resource type="Script" path="res://Components/Constructors/ContainerComponent.cs" id="1_h5avn"]
+
+[node name="ContainerComponent" type="Node"]
+script = ExtResource("1_h5avn")
+Collectables = Array[int]([2])

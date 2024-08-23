@@ -3,7 +3,6 @@ using System;
 
 public class PlayerData {
 
-	public string saveFileVersion = GameMaster.gameVersion;
 	public int checkpoint = 0;
 	public int overworldCheckpoint = 0;
 	public string savedScene = default;

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://derrf5s5xxc52"]
 
-[ext_resource type="PackedScene" uid="uid://d284aoik61kvd" path="res://UI/HUD.tscn" id="1_onhfp"]
+[ext_resource type="PackedScene" uid="uid://d284aoik61kvd" path="res://UI/hud.tscn" id="1_onhfp"]
 [ext_resource type="Script" path="res://Scripts/Entities/Player/Player.cs" id="1_t7el1"]
 [ext_resource type="PackedScene" uid="uid://ybdahiiscl46" path="res://UI/inventory.tscn" id="2_fn1d7"]
 

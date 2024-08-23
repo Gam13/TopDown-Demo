@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using Managment.Game;
 
 public partial class Player : CharacterBody2D
 {
@@ -55,7 +55,16 @@ public partial class Player : CharacterBody2D
         }
     }
 
-	private void HandleInteract(){
-		
-	}
+	 private void HandleInteract()
+    {
+        if (InteractionCast.IsColliding())
+        {
+            var colliding = InteractionCast.GetCollider();
+            if (colliding is InteractionComponent interactionComponent)
+            {
+                InteractionManager.instance.HandleInteraction(interactionComponent);
+            }
+        }
+    }
+
 }

@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using Managment.Scene;
 
 public partial class Node2d : Node2D
 {
