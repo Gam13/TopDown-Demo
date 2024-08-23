@@ -69,11 +69,11 @@ public partial class Player : CharacterBody2D
                 if (componentsNode != null)
                 {
                     // Procura qualquer InteractionComponent dentro do node "Components" e seus filhos
-                    var interactionComponent = InteractionManager.instance.FindInteractionComponentInChildren(componentsNode);
+                    var interactionComponent = InteractionManager.FindInteractionComponentInChildren(componentsNode);
                     if (interactionComponent != null)
                     {
                         // Passa o InteractionComponent para o InteractionManager
-                        InteractionManager.instance.HandleInteraction(interactionComponent);
+                        InteractionManager.HandleInteraction(interactionComponent);
                     }
                 }
             }

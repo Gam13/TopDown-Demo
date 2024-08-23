@@ -3,16 +3,15 @@ using System;
 
 public class PlayerData {
 
-	public int checkpoint = 0;
-	public int overworldCheckpoint = 0;
+	
+	public int MAX_HP = 100;
+	public int current_HP = 100;
+
+
+	public Godot.Collections.Dictionary<ItemType, int> inventory = new();
+
+	//Gerênciamento de  posicionamento
 	public string savedScene = default;
-
-	public Godot.Collections.Dictionary<string, int> sampleDictionary = new Godot.Collections.Dictionary<string, int>();
-
-	public void Init() {
-		sampleDictionary.Add("zero", 0);
-		sampleDictionary.Add("one", 1);
-		sampleDictionary.Add("two", 2);
-	}
+	Vector2 position;
 
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class InteractionManager : Node
 {
@@ -10,7 +11,7 @@ public partial class InteractionManager : Node
         instance = this;
     }
 
-    public InteractionComponent FindInteractionComponentInChildren(Node parent)
+    public static InteractionComponent FindInteractionComponentInChildren(Node parent)
     {
         // Verifica se o node atual é um InteractionComponent
         if (parent is InteractionComponent interactionComponent)
@@ -31,10 +32,36 @@ public partial class InteractionManager : Node
         // Nenhum InteractionComponent encontrado
         return null;
     }
-    public void HandleInteraction(InteractionComponent interactionComponent)
+
+    public static void AddItemtoInventory(Godot.Collections.Array<eItemList> newItem)
     {
-        if(interactionComponent is ContainerComponent){
-            GD.Print("Container");
+        foreach (eItemList item in newItem)
+        {
+            if (ItemManager.instance.ItemList.ContainsKey(item))
+            {
+                // Acessa o item no dicionário usando o índice
+                var itemType = ItemManager.instance.ItemList[item];
+
+                // Adiciona o item ao inventário do jogador
+                if (!GameMaster.playerData.inventory.ContainsKey(itemType))
+                {
+                    GameMaster.playerData.inventory.Add(itemType, 1);
+                }
+                else
+                {
+                    GameMaster.playerData.inventory.Add(itemType, +1);
+                }
+            }
+        }
+    }
+
+
+
+    public static void HandleInteraction(InteractionComponent interactionComponent)
+    {
+        if (interactionComponent is ContainerComponent containerComponent)
+        {
+            AddItemtoInventory(containerComponent.Collectables);
         }
     }
 }
